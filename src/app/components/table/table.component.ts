@@ -6,7 +6,6 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./table.component.sass']
 })
 export class TableComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit(): void {
