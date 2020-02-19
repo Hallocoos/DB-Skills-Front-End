@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { GetDataService } from '../services/get-data.service';
 
-import { EmployeeDetails } from '=../models/Employee';
+import { EmployeeDetails } from '../models/Employee';
 import { EmployeeSkills } from '../models/EmployeeSkills';
 
 @Component({
