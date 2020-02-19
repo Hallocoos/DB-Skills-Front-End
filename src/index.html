@@ -131,7 +131,15 @@
     </footer>
 
     <div class="mobile-menu">
-      <app-root></app-root>
+      <div class="accordion-menu">
+        <nav class="scrollbars scrollbars-light">
+          <ul class="nav" data-accordion-group>
+            <li><a [routerLink]="['/tables']" href="/tables">Tables</a></li>
+            <li><a [routerLink]="['/query']" href="/query">Query</a></li>
+            <li><a [routerLink]="['/upload']" href="/upload">Upload</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
 
   </div>
