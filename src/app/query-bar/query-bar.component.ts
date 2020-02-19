@@ -2,12 +2,6 @@ import { Component, OnInit, Injectable } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': '*/*'
-  })
-};
-
 @Injectable({
   providedIn: 'root'
 })
@@ -21,9 +15,7 @@ const httpOptions = {
 export class QueryBarComponent implements OnInit {
   parentForm: FormGroup;
 
-  constructor(private formbuilder: FormBuilder, private http: HttpClient) { }
-
-
+  constructor(private formbuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.parentForm = this.formbuilder.group({
@@ -51,15 +43,5 @@ export class QueryBarComponent implements OnInit {
     // if (this.parentForm.get('file.value') !== null) {
     //   console.log(this.parentForm.get('file.value'));
     // }
-  }
-
-  uploadFile(file: File) {
-    console.log('uploadFile reached', file);
-    const formData: FormData = new FormData();
-    formData.append('uploadFile', file, file.name);
-
-    this.http.post('http://localhost:5000/uploadFile', formData, httpOptions).subscribe(data => {
-      console.log(data);
-    });
   }
 }
