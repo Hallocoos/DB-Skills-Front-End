@@ -1,46 +1,95 @@
-<div class="table-responsive" style="position: relative;">
-  <div class="table-responsive scrollbars scrollbar-inner scroll-content"
-    style="height: auto; margin-bottom: -17px; margin-right: -17px; max-height: 265px;">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>
-            <div class="checkbox">
-              <input type="checkbox" id="table1Checkbox1"
-                onchange="$(this).closest('table').find(':checkbox').prop('checked', $(this).is(':checked'));">
-              <label for="table1Checkbox1"></label>
+<div class="content-area">
+  <div class="grid-container">
+    <div class="code-section">
+      <div class="accordion-group">
+        <div class="accordion">
+          <div class="accordion-content collapse in">
+            <div class="content-demo">
+              <div class="form-group has-icon"><br>
+                <div class="dropdown" data-dropdown>
+                  <input type="text" class="hidden" id="exampleCssDropdownValue2">
+                  <button type="button" class="form-control dropdown-toggle" id="exampleCssDropdown2"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Employees
+                    <span class="caret"></span>
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="exampleCssDropdown2">
+                    <div class="scrollbars">
+                      <ul class="dropdown-menu" aria-labelledby="exampleCssDropdown1">
+                        <li>
+                          <a href="#" data-value="1" data-label="Employees">
+                            <strong>Employee Details</strong>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#" data-value="2" data-label="Backend">
+                            <strong>Backend Details</strong>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#" data-value="2" data-label="Frontend">
+                            <strong>Frontend Details</strong>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#" data-value="2" data-label="NTT System">
+                            <strong>NTT System Details</strong>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <span class="form-control-feedback fa-building-o"></span>
+                </div>
+              </div>
             </div>
-          </th>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Surname</th>
-          <th>Job Title</th>
-          <th>Team/Office</th>
-          <th>Line Manager</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let employee of employees">
-          <td>
-            <div class="checkbox">
-              <input type="checkbox" id="table1Checkbox{{employee.id}}">
-              <label for="table1Checkbox{{employee.id}}"></label>
-            </div>
-          </td>
-          <td><a href="http://localhost:5000/getEmployeeSkills/{{ employee.id }}">{{ employee.id }}</a></td>
-          <td>{{ employee.name }}</td>
-          <td>{{ employee.surname }}</td>
-          <td>{{ employee.job_title }}</td>
-          <td>{{ employee.team }}</td>
-          <td>{{ employee.line_manager }}</td>
-        </tr>
-      </tbody>
-      <tfoot>
-        <tr>
-          <td colspan="6">
-            <nav aria-label="Page navigation">
-              <ul class="pagination pull-right no-margin">
-                <!-- <li class="pagination-extra">
+            <h4>
+              <!-- Title of the Table -->
+              Title of Table
+            </h4>
+            <div class="table-responsive" style="position: relative;">
+              <div class="table-responsive scrollbars scrollbar-inner scroll-content"
+                style="height: auto; margin-bottom: -17px; margin-right: -17px; max-height: 265px;">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>
+                        <div class="checkbox">
+                          <input type="checkbox" id="table1Checkbox1"
+                            onchange="$(this).closest('table').find(':checkbox').prop('checked', $(this).is(':checked'));">
+                          <label for="table1Checkbox1"></label>
+                        </div>
+                      </th>
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Surname</th>
+                      <th>Job Title</th>
+                      <th>Team/Office</th>
+                      <th>Line Manager</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let employee of employees">
+                      <td>
+                        <div class="checkbox">
+                          <input type="checkbox" id="table1Checkbox{{employee.id}}">
+                          <label for="table1Checkbox{{employee.id}}"></label>
+                        </div>
+                      </td>
+                      <td>{{ employee.id }}</td>
+                      <td><a href="http://localhost:5000/getEmployeeSkills/{{ employee.id }}">{{ employee.name }}</a></td>
+                      <td>{{ employee.surname }}</td>
+                      <td>{{ employee.job_title }}</td>
+                      <td>{{ employee.team }}</td>
+                      <td>{{ employee.line_manager }}</td>
+                    </tr>
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <td colspan="6">
+                        <nav aria-label="Page navigation">
+                          <ul class="pagination pull-right no-margin">
+                            <!-- <li class="pagination-extra">
                   <label for="rowsPerPage">Rows per page</label>
                   <select id="rowsPerPage" class="form-control input-sm">
                     <option>5</option>
@@ -49,22 +98,27 @@
                     <option>50</option>
                   </select>
                 </li> -->
-                <li class="pagination-extra">1-10 of 100</li>
-                <li>
-                  <a href="#">
-                    <span aria-label="Previous" class="fa fa-angle-left"></span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <span aria-label="Next" class="fa fa-angle-right"></span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </td>
-        </tr>
-      </tfoot>
-    </table>
+                            <li class="pagination-extra">1-10 of 100</li>
+                            <li>
+                              <a href="#">
+                                <span aria-label="Previous" class="fa fa-angle-left"></span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="#">
+                                <span aria-label="Next" class="fa fa-angle-right"></span>
+                              </a>
+                            </li>
+                          </ul>
+                        </nav>
+                      </td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
