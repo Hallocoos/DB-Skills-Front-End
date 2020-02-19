@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<div class="form-group has-icon" [formGroup]="parentForm">
+  <label class="control-label" for="tableQuery">Table</label>
+  <div class="dropdown" data-dropdown>
+    <input type="text" class="hidden" id="tableQueryValue" formControlName="table">
+    <button type="button" class="form-control dropdown-toggle" id="tableQuery" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      Please select
+      <span class="caret"></span>
+    </button>
+    <div class="dropdown-menu" aria-labelledby="tableQuery">
+      <div class="scrollbars">
+        <ul class="dropdown-menu">
+          <li>
+            <a class="dropdown-item" href="#" data-value="1" data-label="Employee Info">
+              <strong>Employee Info</strong><br>
+              Employee name,
+              Job title,
+              Line Manager
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <span class="form-control-feedback fa-building-o"></span>
+  </div>
+</div>

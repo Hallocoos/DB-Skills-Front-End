@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<div class="form-group has-icon" [formGroup]="parentForm">
+  <label class="control-label" for="ratingQuery">Rating</label>
+  <div class="dropdown" data-dropdown>
+    <input type="text" class="hidden" id="ratingQueryValue" formControlName="rating">
+    <button type="button" class="form-control dropdown-toggle" id="ratingQuery" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      Please select
+      <span class="caret"></span>
+    </button>
+    <div class="dropdown-menu" aria-labelledby="ratingQuery">
+      <div class="scrollbars">
+        <ul class="dropdown-menu">
+          <li>
+            <a href="#" data-value="1" data-label="Cape Town, South Africa">
+              <strong>Cape Town</strong><br>
+              66 Great Avenue,<br>
+              Rosebank,
+              1158
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <span class="form-control-feedback fa-building-o"></span>
+  </div>
+</div>

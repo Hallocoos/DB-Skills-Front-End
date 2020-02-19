@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<div class="form-group">
+  <label class="control-label">Upload employee skills matrix</label>
+  <div class="file-picker" data-file-picker-example="simple">
+    <div class="file-details"></div>
+    <div class="file-dropzone">
+      <input type="file" name="fileField" id="excelFile" multiple (change)="fileChange($event.target.files)" />
+      <i class="fa fa-paperclip" aria-hidden="true"></i>
+      <span class="hidden-desktop one-line">
+        <a>Browse files</a>
+      </span>
+      <span class="hidden-mobile">
+        Choose files to upload<br>
+        <a>Browse files</a>
+      </span>
+    </div>
+  </div>
+  <p class="help-block">You can upload an Excel file</p>
+</div>

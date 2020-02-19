@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<div class="grid-container--fluid column--2">
+
+  <form [formGroup]="parentForm" (ngSubmit)="onSubmit()">
+    <app-employee-input [parentForm]="parentForm"></app-employee-input>
+    {{ name.value }}
+    <app-team-input [parentForm]="parentForm"></app-team-input>
+    <app-office-input [parentForm]="parentForm"></app-office-input>
+    <app-table-input [parentForm]="parentForm"></app-table-input>
+    {{ table.value }}
+    <app-stack-input [parentForm]="parentForm"></app-stack-input>
+    {{ stack.value }}
+    <app-skill-input [parentForm]="parentForm"></app-skill-input>
+    <app-rating-input [parentForm]="parentForm"></app-rating-input>
+    <div class="btn-toolbar">
+      <button type="submit" class="btn btn-primary">Query</button>
+      <button type="reset" class="btn btn-secondary">Reset</button>
+    </div><br>
+    <app-file-upload [parentForm]="parentForm" (fileEmitter)="uploadFile($event)"></app-file-upload>
+  </form>
+</div>
