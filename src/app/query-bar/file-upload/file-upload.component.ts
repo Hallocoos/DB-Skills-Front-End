@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { ThrowStmt } from '@angular/compiler';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-file-upload',
@@ -10,18 +10,24 @@ import { ThrowStmt } from '@angular/compiler';
 export class FileUploadComponent implements OnInit {
 
   @Input() parentForm: FormGroup;
-  @Input() file: File;
+  @Input() uploadFile: File;
   @Output() fileEmitter = new EventEmitter();
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
   }
 
   fileChange(file) {
     if (file.length > 0) {
-      this.file = file[0];
-      this.fileEmitter.emit(this.file);
+      this.uploadFile = file[0];
+      console.log('uploadFile reached', file);
+      const formData: FormData = new FormData();
+      formData.append('fileField', this.uploadFile, this.uploadFile.name);
+      console.log(formData.getAll('fileField'));
+      this.http.post('http://localhost:5000/uploadFile', formData).subscribe(data => {
+        console.log(data);
+      });
     }
   }
 }
