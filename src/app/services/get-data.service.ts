@@ -15,6 +15,22 @@ export class GetDataService {
   constructor(private http: HttpClient) { }
 
   getAllEmployees(): Observable<EmployeeDetails[]> {
-    return this.http.get<EmployeeDetails[]>(`${this.getUrl}`);
+    return this.http.get<EmployeeDetails[]>('http://localhost:5000/getAllEmployees');
+  }
+
+  getAllFrontEndSkills(): Observable<EmployeeSkills[]> {
+    return this.http.get<EmployeeSkills[]>('http://localhost:5000/getAllFrontEndSkills');
+  }
+
+  getAllBackEndSkills(): Observable<EmployeeSkills[]> {
+    return this.http.get<EmployeeSkills[]>('http://localhost:5000/getAllBackEndSkills');
+  }
+
+  getAllNTTSystemSkills(): Observable<EmployeeSkills[]> {
+    return this.http.get<EmployeeSkills[]>('http://localhost:5000/getAllNTTSystemSkills');
+  }
+
+  getAllSkills(): Observable<EmployeeSkills[]> {
+    return this.http.get<EmployeeSkills[]>('http://localhost:5000/getAllSkills');
   }
 }

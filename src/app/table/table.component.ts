@@ -11,32 +11,48 @@ import { EmployeeSkills } from '../models/EmployeeSkills';
 })
 export class TableComponent implements OnInit {
   employees: EmployeeDetails[];
-
-//   employees = [{
-//     id: 'number',
-//     name: 'string',
-//     surname: 'string',
-//     jobTitle: 'string',
-//     teamOffice: 'string',
-//     lineManager: 'string'
-//   },
-//   {
-//     id: 'number',
-//     name: 'string',
-//     surname: 'string',
-//     jobTitle: 'string',
-//     teamOffice: 'string',
-//     lineManager: 'string'
-//   }
-// ];
+  skills: EmployeeSkills[];
+  title: string;
+  columns = [];
+  employeeColumns = ['ID', 'Name', 'Surname', 'Job Title',
+  'Team/Office', 'Line Manager'];
+  skillsColumns = ['ID', 'Name', 'Surname', 'Stack', 'Skills', 'Rating'];
 
   constructor(private getData: GetDataService) { }
 
   ngOnInit(): void {
-    this.getData.getAllEmployees().subscribe(allEmployees => {
-      this.employees = allEmployees;
-      console.log('allEmployees: ', this.employees);
-    });
+    this.onChange('Employees');
   }
 
+  onChange(table) {
+    if (table === 'Employees') {
+      this.getData.getAllEmployees().subscribe(allEmployees => {
+        this.employees = allEmployees;
+        console.log('getAllEmployees: ', this.employees);
+      });
+      this.columns = this.employeeColumns;
+    } else if (table === 'Front End Skills') {
+      this.getData.getAllFrontEndSkills().subscribe(allSkills => {
+        this.skills = allSkills;
+        console.log('getAllFrontEndSkills: ', this.skills);
+      });
+      this.employees = [];
+      this.columns = this.skillsColumns;
+    } else if (table === 'Back End Skills') {
+      this.getData.getAllBackEndSkills().subscribe(allSkills => {
+        this.skills = allSkills;
+        console.log('getAllBackEndSkills: ', this.skills);
+      });
+      this.employees = [];
+      this.columns = this.skillsColumns;
+    } else if (table === 'NTT System Skills') {
+      this.getData.getAllNTTSystemSkills().subscribe(allSkills => {
+        this.skills = allSkills;
+        console.log('getAllNTTSystemSkills: ', this.skills);
+      });
+      this.employees = [];
+      this.columns = this.skillsColumns;
+    }
+    this.title = table;
+  }
 }

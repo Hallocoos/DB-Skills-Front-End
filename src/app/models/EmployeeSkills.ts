@@ -1,6 +1,8 @@
 export class EmployeeSkills {
-  employeeId: number;
-  Stack: string;
-  Skill: string;
-  Rating: number;
+  id: number;
+  name: string;
+  surname: string;
+  stack: string;
+  skill: string;
+  rating: number;
 }
