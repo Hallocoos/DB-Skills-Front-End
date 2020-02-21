@@ -9,28 +9,25 @@ import { EmployeeSkills } from '../models/EmployeeSkills';
   providedIn: 'root'
 })
 export class GetDataService {
-
-  getUrl = 'http://localhost:5000/getAllEmployees';
-
   constructor(private http: HttpClient) { }
 
-  getAllEmployees(): Observable<EmployeeDetails[]> {
-    return this.http.get<EmployeeDetails[]>('http://localhost:5000/getAllEmployees');
+  getAllEmployees(column, value): Observable<EmployeeDetails[]> {
+    return this.http.get<EmployeeDetails[]>('http://localhost:5000/getAllEmployees/' + column + '/' + value);
   }
 
-  getAllFrontEndSkills(): Observable<EmployeeSkills[]> {
-    return this.http.get<EmployeeSkills[]>('http://localhost:5000/getAllFrontEndSkills');
+  getAllFrontEndSkills(column, value): Observable<EmployeeSkills[]> {
+    return this.http.get<EmployeeSkills[]>('http://localhost:5000/getAllFrontEndSkills/' + column + '/' + value);
   }
 
-  getAllBackEndSkills(): Observable<EmployeeSkills[]> {
-    return this.http.get<EmployeeSkills[]>('http://localhost:5000/getAllBackEndSkills');
+  getAllBackEndSkills(column, value): Observable<EmployeeSkills[]> {
+    return this.http.get<EmployeeSkills[]>('http://localhost:5000/getAllBackEndSkills/' + column + '/' + value);
   }
 
-  getAllNTTSystemSkills(): Observable<EmployeeSkills[]> {
-    return this.http.get<EmployeeSkills[]>('http://localhost:5000/getAllNTTSystemSkills');
+  getAllNTTSystemSkills(column, value): Observable<EmployeeSkills[]> {
+    return this.http.get<EmployeeSkills[]>('http://localhost:5000/getAllNTTSystemSkills/' + column + '/' + value);
   }
 
-  getAllSkills(): Observable<EmployeeSkills[]> {
-    return this.http.get<EmployeeSkills[]>('http://localhost:5000/getAllSkills');
+  getAllSkills(column, value): Observable<EmployeeSkills[]> {
+    return this.http.get<EmployeeSkills[]>('http://localhost:5000/getAllSkill/s' + column + '/' + value);
   }
 }

@@ -8,11 +8,8 @@
             <div class="content-demo"><br>
               <h4 class="pull-left" style="margin-top: 2px;">{{ title }}</h4>
               <div class="pull-right">
-                <select class='form-control input-sm' #Select (change)='onChange(Select.value)'>
-                  <option selected>Employees</option>
-                  <option>Front End Skills</option>
-                  <option>Back End Skills</option>
-                  <option>NTT Systems Skills</option>
+                <select class='form-control input-sm' #Select (change)='changeTable(Select.value)'>
+                  <option *ngFor="let table of tables">{{ table }}</option>
                 </select>
               </div>
             </div>
@@ -24,17 +21,13 @@
                   <span class="tooltip-info" data-toggle="tooltip"
                     title="Enter tooltip!">
                   </span>
-                  <div class="pull-right" style="margin-bottom:10px;">
+                  <div *ngIf="employees !== []" class="pull-right" style="margin-bottom:10px;">
                     <select class='form-control input-sm' #SearchBy>
-                      <option selected>Name</option>
-                      <option>Surname</option>
-                      <option>Job Title</option>
-                      <option>Team/Office</option>
-                      <option>Line Manager</option>
+                      <option #column (change)='changeSearch(Search.value, Column.value)' *ngFor="let column of columns">{{ column }}</option>
                     </select>
                   </div>
                 </label>
-                <input type="text" #Search id="exampleTextInput1" class="form-control"
+                <input type="text" #Search (change)='changeSearch(Search.value, Column.value)' id="exampleTextInput1" class="form-control"
                   placeholder="Enter search terms" maxlength="60" />
                 <p class="help-block">Maximum of 60 characters</p>
               </div>
@@ -75,19 +68,19 @@
                     <tr *ngFor="let skill of skills">
                       <td>
                         <div class="checkbox">
-                          <input type="checkbox" id="table1Checkbox{{skill.id}}">
-                          <label for="table1Checkbox{{skill.id}}"></label>
+                          <input type="checkbox" id="table1Checkbox{{skill.employeeId}}">
+                          <label for="table1Checkbox{{skill.employeeId}}"></label>
                         </div>
                       </td>
                       <td>{{ skill.employeeId }}</td>
-                      <td><a href="http://localhost:5000/getEmployeeSkills/{{ skill.id }}">{{ skill.name }}</a></td>
+                      <td><a href="http://localhost:5000/getEmployeeSkills/{{ skill.employeeId }}">{{ skill.name }}</a></td>
                       <td>{{ skill.surname }}</td>
                       <td>{{ skill.stack }}</td>
                       <td>{{ skill.skill }}</td>
                       <td>{{ skill.rating }}</td>
                     </tr>
                   </tbody>
-                  <tfoot>
+                  <!-- <tfoot>
                     <tr>
                       <td colspan="6">
                         <nav aria-label="Page navigation">
@@ -107,7 +100,7 @@
                         </nav>
                       </td>
                     </tr>
-                  </tfoot>
+                  </tfoot> -->
                 </table>
               </div>
             </div>
